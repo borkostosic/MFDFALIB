@@ -51,7 +51,7 @@ Examples are provided on synthetic series generated for the Binomial multifracta
 
 | R| Python|
 |:-------------------------:|:-------------------------:|
-| <img width="1604" alt="" src="./R/ser16.gif">|<img width="1604" alt="" src="./python/ser16.png"> 
+| <img width="" alt="" src="./R/ser16.gif">|<img width="" alt="" src="./PYTHON/ser16.png"> 
 
 
 ## Citation
