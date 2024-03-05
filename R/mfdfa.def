@@ -1,0 +1,5 @@
+LIBRARY      "mfdfa"
+DESCRIPTION  'R call to C Windows Dynamic Link Library MFDFA'
+
+EXPORTS
+  mfdfa_calc
