@@ -34,7 +34,8 @@ double mfdfa(DFA_CONFIG* cfg, int nx, double* seq,
 	double qmin, double qmax, double dq, 
 	double* H, double* tau, double* alpha, double* f);
 
-
+double eps = 0.001;
+int integrate=1;
 /************************************************************************************************/
 
 /* modified from C.K.Peng's original code to use the DFA_CONFIG structure and 0 offset for rs array:
