@@ -1,20 +1,35 @@
-# Multifractal detrended fluctuation analysis - MFDFA
+# 1D, 2D & 3D Multifractal detrended fluctuation analysis - MFDFA
 
 ## Introduction
-This code repository implements MFDFA algorithm (https://doi.org/10.1016/S0378-4371(02)01383-3) in C, R and Python, representing a unified platform for these software environments.
+This code repository implements standard 1D MFDFA algorithm (https://doi.org/10.1016/S0378-4371(02)01383-3) in C, R and Python, representing a unified platform for these software environments.
+
+The repository was also generalized for 2D and 3D MFDFA (https://doi.org/10.1103/PhysRevE.74.061104), with code ONLY in C (no R and Python wrappers).
 
 ## Setup
-The library is written in C, self-contained in the ```mfdfa.h``` header with examples of integration in ```C```, ```R```, and ```Python```, found in the respective directories. Below are instructions for running examples in each environment.
+The 1D library is written in C, self-contained in the ```mfdfa.h``` header with examples of integration in ```C```, ```R```, and ```Python```, found in the respective directories. Below are instructions for running examples in each environment.
 * ```C```: Run the Microsoft Visual Studio project.
 * ```Python```: Compile the dynamic library  ```python setup.py build```, copy it over ```cp build/lib/mfdfa*```, run the example ```python mfdfa_benchmark.py``` (precompiled Windows dynamic link library ```mfdfa.cp311-win_amd64.pyd``` is also provided)
 * ```R```: Run the example ```mfdfa_benchmark.R``` using the precompiled Windows libraries (Visual Studio project and code for compiling the dlls is also provided for portability).
 
+Besides using the common code in ```mfdfa.h```, the 2D and 3D library code is contained in ```mfdfa2d.h``` and ```mfdfa3d.h``` headers, the MSVC projects with code and data are in the C2D and C3D subdirectories. The data file for the example for 3D MFDFA, A1001_790_790_790.bin is too large for uploading here on GitHub (~4GB, 790X790X790 X-ray CT soil sample), it can be downloaded from the OneDrive link: https://1drv.ms/f/c/0f14c99298fa863e/ErkVkJrChB5Ntzkro4qHaaUBSGa78xlquAPMh3GfOD5YSA?e=htcXQm
+
+Therefore, if you want to test the 3D MFDFA example, after downloading this repository and compiling the MSVC project, download the A1001_790_790_790.bin into the C3D/data subdirectory (or, download the whole repository from OneDrive).
+
 ## Library
-The library exposes a single function that computes the multifractal spectrum. The API of that function is defined as follows and has similar arguments for the ```R``` and ```Python``` wrappers.
+The 1D library exposes a single function that computes the multifractal spectrum. The API of that function is defined as follows and has similar arguments for the ```R``` and ```Python``` wrappers.
 ```
 double mfdfa(DFA_CONFIG* cfg, int n, double* seq, 
 	double qmin, double qmax, double dq, 
 	double* H, double* tau, double* alpha, double* f);
+```
+And the 2D and 3D functions are declared as:
+```
+double mfdfa_2d(DFA_CONFIG* cfg, int nx, int ny, double* seq, 
+	double qmin, double qmax, double dq, double eps, double* H, double* H2);
+```
+```
+double mfdfa_3d(DFA_CONFIG* cfg, int nx, int ny, int nz, double* seq,
+	double qmin, double qmax, double dq, double eps, double* H, double* H2);
 ```
 * ```cfg```: Configuration structure (input)
 * ```n```: Number of elements in the series (input)
@@ -46,7 +61,7 @@ typedef struct {			// configurateion structure, holds all parameters
 	int goback;			// go backwards if no sliding window
 }DFA_CONFIG;
 ```
-## Results
+## Results for 1D MFDFA
 Examples are provided on synthetic series generated for the Binomial multifractal model with a=0.75 and 2^16=65536 data points (https://doi.org/10.1016/S0378-4371(02)01383-3), included under ```data/```. Below are shown the results obtained with ```R``` and ```Python``` (the C example yields only numeric data in ```C/ser16_mfdfa.txt```), the red curves represent exact analytical results for infinite series.
 
 | R| Python|
