@@ -1,0 +1,13 @@
+f := proc (x, y, z) options operator, arrow; a+b*x+c*y+d*z end proc;
+s := sum((v[i]-f(x[i], y[i], z[i]))^2, i = 1 .. n);
+eq1 := diff(s, a) = 0;
+eq2 := diff(s, b) = 0;
+eq3 := diff(s, c) = 0;
+eq4 := diff(s, d) = 0;
+sol := simplify(solve({eq1, eq2, eq3, eq4}, {a, b, c, d}));
+with(CodeGeneration);
+sol := subs(sum(y[i]^2, i = 1 .. n) = Y2, subs(sum(x[i]^2, i = 1 .. n) = X2, subs(sum(y[i]*v[i], i = 1 .. n) = VY, subs(sum(x[i]*v[i], i = 1 .. n) = VX, subs(sum(x[i]*y[i], i = 1 .. n) = XY, subs(sum(v[i], i = 1 .. n) = V, subs(sum(x[i], i = 1 .. n) = X, subs(sum(y[i], i = 1 .. n) = Y, subs(sum(z[i], i = 1 .. n) = Z, subs(sum(z[i]^2, i = 1 .. n) = Z2, subs(sum(x[i]*z[i], i = 1 .. n) = XZ, subs(sum(y[i]*z[i], i = 1 .. n) = YZ, subs(sum(v[i]*z[i], i = 1 .. n) = VZ, sol)))))))))))));
+C(sol[1]);
+C(sol[2]);
+C(sol[3]);
+C(sol[4]);

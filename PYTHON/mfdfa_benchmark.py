@@ -15,7 +15,7 @@ MAX_BOX=200		# maximum 200 points on logarithmic scale...
 MAXQ=201		# max q resolution -10,...,10 dq=0.1
 
 # Load data.
-series = 'ser16'	# binomial multifractal series 2^16=65536 data points
+series = 'ser20'	# binomial multifractal series 2^16=65536 data points
 data = np.loadtxt('../data/'+series+'.txt')
 total = data.shape[0]
 printf("Loaded %d data points from %s\n", total, '../data/'+series+'.txt')
