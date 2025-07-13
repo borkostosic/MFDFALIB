@@ -22,7 +22,7 @@ double mfdfa(DFA_CONFIG* cfg, int n, double* seq,
 	double qmin, double qmax, double dq, 
 	double* H, double* tau, double* alpha, double* f);
 ```
-And the 2D and 3D functions are declared as:
+and the 2D and 3D functions are declared as (see the corresponding example *.c files):
 ```
 double mfdfa_2d(DFA_CONFIG* cfg, int nx, int ny, double* seq, 
 	double qmin, double qmax, double dq, double eps, double* H, double* H2);
