@@ -40,7 +40,7 @@ double mfdfa_3d(DFA_CONFIG* cfg, int nx, int ny, int nz, double* seq,
 * ```alpha```: alpha (output)
 * ```f```: Spectrum f (output)
 
-The configurateion structure is defined in ```mfdfa.h``` header as:
+The configuration structure is defined in ```mfdfa.h``` header as:
 ```
 
 #define MAX_BOX	200			// maximum 200 points on logarithmic scale...
@@ -68,6 +68,11 @@ Examples are provided on synthetic series generated for the Binomial multifracta
 |:-------------------------:|:-------------------------:|
 | <img width="" alt="" src="./R/ser16.gif">|<img width="" alt="" src="./PYTHON/ser16.png"> 
 
+## Results for 2D ad 3D MFDFA
+Examples of a 3D X-ray CT scan soil sample (Stosic et al., "Comparative Analysis of 1D, 2D, and 3D MFDFA for 3D Soil Structure Characterization via X-ray CT", submitted to Chaos, July 2025) are used as examples. For 2D MFDFA only the first 2D 790x790 slice A1001_layer1_790_790.bin can be found in the C2D/data subdirectory, while (as already mentioned) the full 3D image A1001_790_790_790.bin (double precision, 790x790x790 binary data file), can be downloaded from the above OneDrive link. 
+| 2D| 3D|
+|:-------------------------:|:-------------------------:|
+| <img width="" alt="" src="./C2D/data/A1001_layer1_790_790_mfdfa.png">|<img width="" alt="" src="./C3D/data/A1001_790_790_790_mfdfa.png"> 
 
 ## Citation
 If you use this work in academic research, citating the following reference would be appreciated:
