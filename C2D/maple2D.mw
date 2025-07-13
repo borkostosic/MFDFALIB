@@ -1,0 +1,11 @@
+f := proc (x, y) options operator, arrow; a+b*x+c*y end proc;
+s := sum((v[i]-f(x[i], y[i]))^2, i = 1 .. n);
+eq1 := diff(s, a) = 0;
+eq2 := diff(s, b) = 0;
+eq3 := diff(s, c) = 0;
+sol := simplify(solve({eq1, eq2, eq3}, {a, b, c}));
+with(CodeGeneration);
+ssol := subs(sum(y[i]^2, i = 1 .. n) = Y2, subs(sum(x[i]^2, i = 1 .. n) = X2, subs(sum(v[i]*y[i], i = 1 .. n) = YV, subs(sum(v[i]*x[i], i = 1 .. n) = XV, subs(sum(x[i]*y[i], i = 1 .. n) = XY, subs(sum(v[i], i = 1 .. n) = V, subs(sum(x[i], i = 1 .. n) = X, subs(sum(y[i], i = 1 .. n) = Y, sol))))))));
+C(ssol[1]);
+C(ssol[2]);
+C(ssol[3]);
