@@ -13,7 +13,7 @@ The 1D library is written in C, self-contained in the ```mfdfa.h``` header with 
 
 Besides using the common code in ```mfdfa.h```, the 2D and 3D library code is contained in ```mfdfa2d.h``` and ```mfdfa3d.h``` headers, the MSVC projects with code and data are in the C2D and C3D subdirectories. The data file for the example for 3D MFDFA, A1001_790_790_790.bin is too large for uploading here on GitHub (~4GB, 790X790X790 X-ray CT soil sample), it can be downloaded from the OneDrive link: https://1drv.ms/f/c/0f14c99298fa863e/ErkVkJrChB5Ntzkro4qHaaUBSGa78xlquAPMh3GfOD5YSA?e=htcXQm
 
-Therefore, if you want to test the 3D MFDFA example, after downloading this repository and compiling the MSVC project, download the A1001_790_790_790.bin into the C3D/data subdirectory (or, download the whole repository from OneDrive).
+Therefore, if you want to test the 3D MFDFA example, after downloading this repository and compiling the MSVC project, download the A1001_790_790_790.bin into the C3D/data subdirectory (or, download the whole repository from the above OneDrive link).
 
 ## Library
 The 1D library exposes a single function that computes the multifractal spectrum. The API of that function is defined as follows and has similar arguments for the ```R``` and ```Python``` wrappers.
